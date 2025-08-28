@@ -1,4 +1,10 @@
 
+  const hamburger = document.getElementById("hamburger");
+  const nav = document.querySelector(".navigation");
+
+  hamburger.addEventListener("click", () => {
+    nav.classList.toggle("active");
+  });
 //parallax
 let text = document.getElementById('text');
 let leaf = document.getElementById('leaf');
