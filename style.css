@@ -1,0 +1,613 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+    cursor: url('img/cursor32.png'), auto;
+}
+
+body {
+    background:#E0FFFF;
+    overflow-x: hidden;
+}
+
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 2em;
+    color: #359381;
+    pointer-events: none;
+    position: absolute;
+    left: 100px;
+    -webkit-text-stroke: 1px darkgreen; 
+}
+
+.navigation {
+    display: flex;
+    gap: 20px;
+}
+
+.navigation a {
+    text-decoration: none;
+    color: #359381;
+    padding: 6px 15px;
+    border-radius: 20px;
+    margin: 0 10px;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.navigation a:hover,
+.navigation .active {
+    background-color: #359381;
+    color: white;
+    cursor: url('img/pointer32.png'), pointer;
+}
+
+.parallax {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+   font-size: 5em;
+  font-weight: 700;
+    -webkit-text-stroke: 3px #003329; 
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); 
+  white-space: nowrap;
+  letter-spacing: 2px;
+}
+
+.parallax img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    pointer-events: none;
+}
+
+#plant {
+    top: -10%;
+}
+
+#bird {
+    position: fixed;
+    top: 8%;
+    left: 8%;
+    width: 70px;
+    z-index: 10;
+}
+
+#bird2 {
+    position: fixed;
+    top: 15%;
+    left: 12%;
+    width: 85px;
+    z-index: 9;
+}
+
+#bird3 {
+    position: fixed;
+    top: 6%;
+    left: 18%;
+    width: 60px;
+    z-index: 11;
+}
+
+.secbackground {
+    position: relative;
+    overflow: hidden;
+    background: #003329;
+    padding: 40px;
+    z-index: 10;
+}
+
+/* Tiêu đề */
+.secbackground h2 {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    color: #a8ffbf;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+
+.secbackground .highlight {
+    color: #ffda75;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+
+.secbackground p {
+    font-size: 24px;
+    margin-bottom: 25px;
+    color: #e0f7da;
+    line-height: 1.8;
+}
+
+
+.secbackground p.cta {
+    text-align: center;
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #ffe57f;
+    margin-top: 40px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.introduce {
+    width: 90%;
+    margin: 0 auto;
+}
+.introduce p,
+.introduce h2 {
+  opacity: 0;
+  transform: translateY(30px); /* bắt đầu thấp hơn */
+  transition: all 0.8s ease-out;
+}
+
+/* Khi active */
+.introduce p.active,
+.introduce h2.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.highlight {
+    color: #ffda75;
+}
+
+/* Lá rơi */
+.leaf {
+    position: absolute;
+    top: -60px;
+    width: 40px;
+    height: 40px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.8;
+    pointer-events: none;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Ẩn mặc định */
+#rotate-notice {
+    display: none;
+}
+
+/* Chỉ áp dụng cho màn hình <= 768px (điện thoại) */
+@media (max-width: 768px) {
+
+    /* ===== Overlay thông báo ===== */
+    #rotate-notice {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: #003329;
+        color: #fff;
+        font-size: 1.5em;
+        font-weight: bold;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+        z-index: 9999;
+    }
+
+    .phone-wrapper {
+        position: relative;
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        overflow: visible;
+        /* cho vòng tròn rộng hơn ảnh */
+    }
+
+    .phone-img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        border-radius: 50%;
+        /* ảnh cũng tròn */
+        background: white;
+    }
+
+    /* Vòng tròn xoay */
+    .circle {
+        position: absolute;
+        top: -10px;
+        /* đưa vòng tròn ra ngoài ảnh 1 chút */
+        left: -10px;
+        width: 140px;
+        /* lớn hơn ảnh để thấy rõ xoay */
+        height: 140px;
+        border: 3px solid #fff;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        animation: rotateClockwise 2s linear infinite;
+    }
+
+    /* Mũi tên trên vòng tròn */
+    .arrow {
+        width: 0;
+        height: 0;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-bottom: 20px solid #fff;
+        position: absolute;
+        top: -25px;
+        /* trên vòng tròn */
+    }
+
+    /* Quay vòng tròn */
+    @keyframes rotateClockwise {
+        from {
+            transform: rotate(0deg);
+        }
+
+        to {
+            transform: rotate(90deg);
+        }
+    }
+
+}
+
+/* Hamburger - mặc định ẩn */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.hamburger div {
+    width: 25px;
+    height: 3px;
+    background: #359381;
+}
+
+
+/* khung ảnh */
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+
+.gallery img {
+  width: 100%;          
+  max-width: 500px;     
+  border-radius: 10px;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease-out;
+}
+
+.gallery img:hover {
+  transform: translateY(0) scale(1.05); 
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3); 
+  transition: all 0.5s ease;
+  cursor: url('img/pointer32.png'), pointer;
+}
+
+/* Khi active (vào viewport) */
+.gallery img.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 20px;
+}
+
+.modal-content {
+    background: whitesmoke;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 15px;
+    max-width: 900px;
+    width: 100%;
+    display: flex;
+    gap: 20px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 0.3s ease-out;
+    padding: 10px;
+}
+
+.modal-content .close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 1.8em;
+    cursor: pointer;
+    color: #333;
+    transition: color 0.2s;
+}
+
+.modal-content .close:hover {
+    color: #ff6347;
+}
+
+.modal-body {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+}
+
+/* Ảnh */
+.modal-body img {
+    width: 50%;
+    border-radius: 15px;
+    object-fit: cover;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+}
+
+.modal-body img:hover {
+    transform: scale(1.02);
+}
+
+/* Text */
+.modal-text {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    color: #222;
+    line-height: 1.7;
+}
+
+.modal-text h3 {
+    font-size: 1.6em;
+    margin-bottom: 15px;
+    color: #359381;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.modal-text p {
+    font-size: 1.1em;
+}
+
+.modal-text p::first-letter {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #359381;
+}
+
+/* Fade in */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* ===== Mobile ===== */
+@media (max-width:768px) {
+    .navigation {
+        display: none;
+        /* ẩn menu */
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        flex-direction: column;
+        background: #003329;
+        padding: 10px 20px;
+        border-radius: 10px;
+    }
+
+    .navigation.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: flex;
+        
+    }
+        .gallery img {
+        width: calc(50% - 10px);
+    }
+
+    .modal-body {
+        flex-direction: column;
+    }
+    .modal-body img,
+    .modal-text {
+        width: 100%;
+    }
+
+    .modal-text {
+        text-align: center;
+        justify-content: center;
+    }
+        .contact-form {
+        padding: 20px;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/*liên hệ */
+.info {
+    margin-top: 40px;
+}
+
+.contact-section h2 {
+    font-size: 2em;
+    margin: 40px 0px;
+    color: #a8ffbf;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.contact-form {
+    width: 85%;
+    margin: 10px auto;
+    background: rgba(255, 255, 255, 0.1);
+    /* nền mờ */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-form .form-group {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.contact-form label {
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #e0f7da;
+    font-size: 24px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 12px 15px;
+    border: none;
+    border-radius: 10px;
+    font-size: 20px;
+    outline: none;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    transition: 0.3s;
+    cursor: url('img/pointer32.png'), pointer !important;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #d0f0c0;
+}
+
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    background: rgba(255, 255, 255, 0.35);
+    cursor: url('img/pointer32.png'), pointer !important;
+    
+}
+
+.submit-btn {
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    background: #a8ffbf;
+    color: #003329;
+    font-weight: 700;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.submit-btn:hover {
+    background: #85e0a0;
+    transform: translateY(-2px);
+    cursor: url('img/pointer32.png'), pointer;
+}
+/* back to top */
+.back-to-top-btn {
+position: fixed;
+bottom: 30px;
+right: 30px;
+background-color: white;
+color: #003329;
+border: 1px solid black;
+border-radius: 50%;
+width: 50px;
+height: 50px;
+font-size: 20px;
+cursor: pointer;
+display: none;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+transition: all 0.3s ease;
+z-index: 9999;
+align-items: center;
+justify-content: center;
+}
+
+.back-to-top-btn:hover {
+background-color: #003329;
+transform: scale(1.1);
+color:white;
+cursor: url('img/pointer32.png'), pointer;
+}
+
+.back-to-top-btn.show {
+display: flex;
+}
