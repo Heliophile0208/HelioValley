@@ -1,10 +1,28 @@
 
-  const hamburger = document.getElementById("hamburger");
-  const nav = document.querySelector(".navigation");
+const hamburger = document.querySelector(".header-mobile .hamburger");
+const nav = document.querySelector(".header-mobile .navigation");
 
-  hamburger.addEventListener("click", () => {
-    nav.classList.toggle("active");
-  });
+// Mở menu khi nhấn hamburger
+hamburger.addEventListener("click", (e) => {
+    nav.classList.add("active");
+    e.stopPropagation(); // tránh click lan ra document
+});
+
+// Đóng menu khi nhấn dấu X
+const closeBtn2 = document.querySelector(".header-mobile .navigation .close");
+closeBtn2.addEventListener("click", () => {
+    nav.classList.remove("active");
+});
+
+// Đóng menu khi click ra ngoài
+document.addEventListener("click", (e) => {
+    if (nav.classList.contains("active") && !nav.contains(e.target) && !hamburger.contains(e.target)) {
+        nav.classList.remove("active");
+    }
+});
+
+
+
 //parallax
 let text = document.getElementById('text');
 let leaf = document.getElementById('leaf');
@@ -143,28 +161,28 @@ function checkImages() {
 window.addEventListener('scroll', checkImages);
 window.addEventListener('load', checkImages); // check ngay khi load
 // back to top
-document.addEventListener("DOMContentLoaded", function() {
-const backToTopBtn = document.getElementById("backToTopBtn");
+document.addEventListener("DOMContentLoaded", function () {
+    const backToTopBtn = document.getElementById("backToTopBtn");
 
-if (backToTopBtn) {
-// Hiển thị/nút ẩn khi cuộn
-window.addEventListener("scroll", function() {
-if (window.scrollY > 300) {
-backToTopBtn.classList.add("show");
-} else {
-backToTopBtn.classList.remove("show");
-}
-});
+    if (backToTopBtn) {
+        // Hiển thị/nút ẩn khi cuộn
+        window.addEventListener("scroll", function () {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.add("show");
+            } else {
+                backToTopBtn.classList.remove("show");
+            }
+        });
 
-// Cuộn lên đầu trang khi nhấp
-backToTopBtn.addEventListener("click", function(e) {
-e.preventDefault();
-window.scrollTo({
-top: 0,
-behavior: "smooth"
-});
-});
-} else {
-console.error("Không tìm thấy nút 'Lên đầu trang'");
-}
+        // Cuộn lên đầu trang khi nhấp
+        backToTopBtn.addEventListener("click", function (e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+    } else {
+        console.error("Không tìm thấy nút 'Lên đầu trang'");
+    }
 });
