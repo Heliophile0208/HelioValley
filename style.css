@@ -463,6 +463,9 @@ header {
         display: flex;
         
     }
+    #text {
+        font-size:20px;
+        }
         .gallery img {
         width: calc(50% - 10px);
     }
