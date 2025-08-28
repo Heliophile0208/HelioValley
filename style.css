@@ -29,8 +29,6 @@ header {
     font-size: 2em;
     color: #359381;
     pointer-events: none;
-    position: absolute;
-    left: 100px;
     -webkit-text-stroke: 1px darkgreen; 
 }
 
@@ -633,4 +631,5 @@ cursor: url('img/pointer32.png'), pointer;
 
 .back-to-top-btn.show {
 display: flex;
+
 }
