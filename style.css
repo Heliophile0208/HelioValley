@@ -493,6 +493,7 @@ header {
   .navigation {
     display: none;
   }
+#text { font-size:20px; }
 }
 @keyframes fadeIn {
     from {
