@@ -390,7 +390,9 @@ body {
         padding: 20px;
         z-index: 9999;
     }
-
+    #text {
+        font-size:3em
+    }
     .phone-wrapper {
         position: relative;
         width: 120px;
@@ -695,3 +697,4 @@ body {
 .back-to-top-btn.show {
     display: flex;
 }
+
