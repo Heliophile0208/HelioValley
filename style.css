@@ -486,7 +486,14 @@ header {
         padding: 20px;
     }
 }
-
+@media (max-width: 1024px) {
+  .hamburger {
+    display: flex;
+  }
+  .navigation {
+    display: none;
+  }
+}
 @keyframes fadeIn {
     from {
         opacity: 0;
