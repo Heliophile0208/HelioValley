@@ -9,35 +9,45 @@
 }
 
 body {
-    background:#E0FFFF;
+    background: #E0FFFF;
     overflow-x: hidden;
 }
 
-header {
+.header-desktop {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     padding: 30px 100px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     z-index: 100;
+}
+
+.header-desktop {
+    display: flex;
+}
+
+.header-mobile {
+    display: none;
 }
 
 .logo {
     font-size: 2em;
     color: #359381;
     pointer-events: none;
-    -webkit-text-stroke: 1px darkgreen; 
+    position: absolute;
+    left: 100px;
+    -webkit-text-stroke: 1px darkgreen;
 }
 
-.navigation {
+.header-desktop .navigation {
     display: flex;
     gap: 20px;
 }
 
-.navigation a {
+.header-desktop .navigation a {
     text-decoration: none;
     color: #359381;
     padding: 6px 15px;
@@ -47,8 +57,8 @@ header {
     font-size: 20px;
 }
 
-.navigation a:hover,
-.navigation .active {
+.header-desktop .navigation a:hover,
+.header-desktop .navigation .active {
     background-color: #359381;
     color: white;
     cursor: url('img/pointer32.png'), pointer;
@@ -69,12 +79,12 @@ header {
     left: 50%;
     transform: translate(-50%, -50%);
     color: white;
-   font-size: 5em;
-  font-weight: 700;
-    -webkit-text-stroke: 3px #003329; 
-  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); 
-  white-space: nowrap;
-  letter-spacing: 2px;
+    font-size: 5em;
+    font-weight: 700;
+    -webkit-text-stroke: 3px #003329;
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    white-space: nowrap;
+    letter-spacing: 2px;
 }
 
 .parallax img {
@@ -159,18 +169,20 @@ header {
     width: 90%;
     margin: 0 auto;
 }
+
 .introduce p,
 .introduce h2 {
-  opacity: 0;
-  transform: translateY(30px); /* bắt đầu thấp hơn */
-  transition: all 0.8s ease-out;
+    opacity: 0;
+    transform: translateY(30px);
+    /* bắt đầu thấp hơn */
+    transition: all 0.8s ease-out;
 }
 
 /* Khi active */
 .introduce p.active,
 .introduce h2.active {
-  opacity: 1;
-  transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .highlight {
@@ -207,89 +219,6 @@ header {
     display: none;
 }
 
-/* Chỉ áp dụng cho màn hình <= 768px (điện thoại) */
-@media (max-width: 768px) {
-
-    /* ===== Overlay thông báo ===== */
-    #rotate-notice {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh;
-        background: #003329;
-        color: #fff;
-        font-size: 1.5em;
-        font-weight: bold;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        padding: 20px;
-        z-index: 9999;
-    }
-
-    .phone-wrapper {
-        position: relative;
-        width: 120px;
-        height: 120px;
-        border-radius: 50%;
-        overflow: visible;
-        /* cho vòng tròn rộng hơn ảnh */
-    }
-
-    .phone-img {
-        width: 100%;
-        height: 100%;
-        display: block;
-        border-radius: 50%;
-        /* ảnh cũng tròn */
-        background: white;
-    }
-
-    /* Vòng tròn xoay */
-    .circle {
-        position: absolute;
-        top: -10px;
-        /* đưa vòng tròn ra ngoài ảnh 1 chút */
-        left: -10px;
-        width: 140px;
-        /* lớn hơn ảnh để thấy rõ xoay */
-        height: 140px;
-        border: 3px solid #fff;
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        animation: rotateClockwise 2s linear infinite;
-    }
-
-    /* Mũi tên trên vòng tròn */
-    .arrow {
-        width: 0;
-        height: 0;
-        border-left: 10px solid transparent;
-        border-right: 10px solid transparent;
-        border-bottom: 20px solid #fff;
-        position: absolute;
-        top: -25px;
-        /* trên vòng tròn */
-    }
-
-    /* Quay vòng tròn */
-    @keyframes rotateClockwise {
-        from {
-            transform: rotate(0deg);
-        }
-
-        to {
-            transform: rotate(90deg);
-        }
-    }
-
-}
-
 /* Hamburger - mặc định ẩn */
 .hamburger {
     display: none;
@@ -315,26 +244,27 @@ header {
 }
 
 .gallery img {
-  width: 100%;          
-  max-width: 500px;     
-  border-radius: 10px;
-  opacity: 0;
-  transform: translateY(50px);
-  transition: all 0.8s ease-out;
+    width: 100%;
+    max-width: 500px;
+    border-radius: 10px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease-out;
 }
 
 .gallery img:hover {
-  transform: translateY(0) scale(1.05); 
-  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3); 
-  transition: all 0.5s ease;
-  cursor: url('img/pointer32.png'), pointer;
+    transform: translateY(0) scale(1.05);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+    transition: all 0.5s ease;
+    cursor: url('img/pointer32.png'), pointer;
 }
 
 /* Khi active (vào viewport) */
 .gallery img.active {
-  opacity: 1;
-  transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0);
 }
+
 /* Modal */
 .modal {
     display: none;
@@ -439,36 +369,188 @@ header {
         transform: translateY(0);
     }
 }
+
 /* ===== Mobile ===== */
-@media (max-width:768px) {
-   .hamburger {
-        display: flex; /* hiện hamburger */
-      }
-      .navigation {
-        display: none; /* ẩn menu ngang */
-        flex-direction: column;
-        gap: 15px;
+@media (max-width:1020px) {
+    #rotate-notice {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: #003329;
+        color: #fff;
+        font-size: 1.5em;
+        font-weight: bold;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+        z-index: 9999;
+    }
+
+    .phone-wrapper {
+        position: relative;
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        overflow: visible;
+        /* cho vòng tròn rộng hơn ảnh */
+    }
+
+    .phone-img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        border-radius: 50%;
+        /* ảnh cũng tròn */
+        background: white;
+    }
+
+    /* Vòng tròn xoay */
+    .circle {
         position: absolute;
-        top: 60px;   /* xổ xuống dưới header */
-        right: 20px;
-        background: #fff;
-        padding: 15px;
-        border-radius: 8px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      }
-      .navigation.active {
-        display: flex; /* hiện lại khi toggle */
-      }
-    #text {
-        font-size:28px;
+        top: -10px;
+        /* đưa vòng tròn ra ngoài ảnh 1 chút */
+        left: -10px;
+        width: 140px;
+        /* lớn hơn ảnh để thấy rõ xoay */
+        height: 140px;
+        border: 3px solid #fff;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        animation: rotateClockwise 2s linear infinite;
+    }
+
+    /* Mũi tên trên vòng tròn */
+    .arrow {
+        width: 0;
+        height: 0;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-bottom: 20px solid #fff;
+        position: absolute;
+        top: -25px;
+        /* trên vòng tròn */
+    }
+
+    /* Quay vòng tròn */
+    @keyframes rotateClockwise {
+        from {
+            transform: rotate(0deg);
         }
-        .gallery img {
+
+        to {
+            transform: rotate(90deg);
+        }
+    }
+
+    .header-desktop {
+        display: none;
+    }
+
+    .header-mobile {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        z-index: 1000;
+    }
+
+    .header-mobile .hamburger {
+        font-size: 1.8em;
+        cursor: pointer;
+        color: #359381;
+        display: block;
+    }
+
+    .header-mobile .navigation {
+        position: fixed;
+        top: 60px;
+        left: 0;
+        background: rgba(0, 0, 0, 0.95);
+        flex-direction: column;
+        width: 200px;
+        padding: 20px;
+
+        display: none;
+        z-index: 1001;
+    }
+
+
+    .header-mobile .navigation.active {
+        display: flex;
+    }
+
+
+    .header-mobile .navigation a {
+        text-decoration: none;
+        color: #359381;
+        padding: 10px 15px;
+        font-weight: 600;
+        font-size: 18px;
+        border-radius: 10px;
+        margin-bottom: 10px;
+    }
+
+    .header-mobile .navigation a:hover,
+    .header-mobile .navigation a.active {
+        background-color: #359381;
+        color: white;
+    }
+
+    .header-mobile .navigation .close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+    }
+
+    .header-mobile .navigation .close::before,
+    .header-mobile .navigation .close::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 2px;
+        height: 24px;
+        background-color: #fff;
+        transform-origin: center;
+        transition: background 0.3s;
+    }
+
+    .header-mobile .navigation .close::before {
+        transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    .header-mobile .navigation .close::after {
+        transform: translate(-50%, -50%) rotate(-45deg);
+    }
+
+    .header-mobile .navigation .close:hover::before,
+    .header-mobile .navigation .close:hover::after {
+        background-color: #ffca28;
+    }
+
+    .gallery img {
         width: calc(50% - 10px);
     }
 
     .modal-body {
         flex-direction: column;
     }
+
     .modal-body img,
     .modal-text {
         width: 100%;
@@ -478,33 +560,13 @@ header {
         text-align: center;
         justify-content: center;
     }
-        .contact-form {
+
+    .contact-form {
         padding: 20px;
     }
 }
-   @media (max-width: 1024px) {
-      .hamburger {
-        display: flex; /* hiện hamburger */
-      }
-      .navigation {
-        display: none; /* ẩn menu ngang */
-        flex-direction: column;
-        gap: 15px;
-        position: absolute;
-        top: 60px;   /* xổ xuống dưới header */
-        right: 20px;
-        background: #fff;
-        padding: 15px;
-        border-radius: 8px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      }
-      .navigation.active {
-        display: flex; /* hiện lại khi toggle */
-      }
-    #text {
-        font-size:30px;
-        }
-    }
+
+
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -581,7 +643,7 @@ header {
 .contact-form textarea:focus {
     background: rgba(255, 255, 255, 0.35);
     cursor: url('img/pointer32.png'), pointer !important;
-    
+
 }
 
 .submit-btn {
@@ -601,35 +663,35 @@ header {
     transform: translateY(-2px);
     cursor: url('img/pointer32.png'), pointer;
 }
+
 /* back to top */
 .back-to-top-btn {
-position: fixed;
-bottom: 30px;
-right: 30px;
-background-color: white;
-color: #003329;
-border: 1px solid black;
-border-radius: 50%;
-width: 50px;
-height: 50px;
-font-size: 20px;
-cursor: pointer;
-display: none;
-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-transition: all 0.3s ease;
-z-index: 9999;
-align-items: center;
-justify-content: center;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: white;
+    color: #003329;
+    border: 1px solid black;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    cursor: pointer;
+    display: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
 }
 
 .back-to-top-btn:hover {
-background-color: #003329;
-transform: scale(1.1);
-color:white;
-cursor: url('img/pointer32.png'), pointer;
+    background-color: #003329;
+    transform: scale(1.1);
+    color: white;
+    cursor: url('img/pointer32.png'), pointer;
 }
 
 .back-to-top-btn.show {
-display: flex;
-
+    display: flex;
 }
