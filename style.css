@@ -443,26 +443,24 @@ header {
 }
 /* ===== Mobile ===== */
 @media (max-width:768px) {
-    .navigation {
-        display: none;
-        /* ẩn menu */
-        position: absolute;
-        top: 60px;
-        right: 20px;
+   .hamburger {
+        display: flex; /* hiện hamburger */
+      }
+      .navigation {
+        display: none; /* ẩn menu ngang */
         flex-direction: column;
-        background: #003329;
-        padding: 10px 20px;
-        border-radius: 10px;
-    }
-
-    .navigation.active {
-        display: flex;
-    }
-
-    .hamburger {
-        display: flex;
-        
-    }
+        gap: 15px;
+        position: absolute;
+        top: 60px;   /* xổ xuống dưới header */
+        right: 20px;
+        background: #fff;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      }
+      .navigation.active {
+        display: flex; /* hiện lại khi toggle */
+      }
     #text {
         font-size:28px;
         }
@@ -486,15 +484,29 @@ header {
         padding: 20px;
     }
 }
-@media (max-width: 1024px) {
-  .hamburger {
-    display: flex;
-  }
-  .navigation {
-    display: none;
-  }
-#text { font-size:28px; }
-}
+   @media (max-width: 1024px) {
+      .hamburger {
+        display: flex; /* hiện hamburger */
+      }
+      .navigation {
+        display: none; /* ẩn menu ngang */
+        flex-direction: column;
+        gap: 15px;
+        position: absolute;
+        top: 60px;   /* xổ xuống dưới header */
+        right: 20px;
+        background: #fff;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      }
+      .navigation.active {
+        display: flex; /* hiện lại khi toggle */
+      }
+    #text {
+        font-size:30px;
+        }
+    }
 @keyframes fadeIn {
     from {
         opacity: 0;
