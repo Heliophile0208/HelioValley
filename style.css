@@ -464,7 +464,7 @@ header {
         
     }
     #text {
-        font-size:20px;
+        font-size:28px;
         }
         .gallery img {
         width: calc(50% - 10px);
@@ -493,7 +493,7 @@ header {
   .navigation {
     display: none;
   }
-#text { font-size:20px; }
+#text { font-size:28px; }
 }
 @keyframes fadeIn {
     from {
