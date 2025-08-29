@@ -399,7 +399,6 @@ body {
         height: 120px;
         border-radius: 50%;
         overflow: visible;
-        /* cho vòng tròn rộng hơn ảnh */
     }
 
     .phone-img {
@@ -407,7 +406,6 @@ body {
         height: 100%;
         display: block;
         border-radius: 50%;
-        /* ảnh cũng tròn */
         background: white;
     }
 
@@ -415,10 +413,8 @@ body {
     .circle {
         position: absolute;
         top: -10px;
-        /* đưa vòng tròn ra ngoài ảnh 1 chút */
         left: -10px;
         width: 140px;
-        /* lớn hơn ảnh để thấy rõ xoay */
         height: 140px;
         border: 3px solid #fff;
         border-radius: 50%;
@@ -553,18 +549,6 @@ body {
     width: 90%; 
     padding: 10px;
   }
-
-  .modal-body {
-    flex-direction: column; 
-    align-items: center;
-    text-align: center;
-  }
-
-  .modal-body img {
-    max-width: 100%; 
-    margin-bottom: 10px;
-  }
-
   .modal-text {
     font-size: 14px;
   }
