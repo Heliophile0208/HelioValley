@@ -392,6 +392,7 @@ body {
     }
     #text {
         font-size:3em
+        -webkit-text-stroke: 1px #003329;
     }
     .phone-wrapper {
         position: relative;
